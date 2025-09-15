@@ -132,7 +132,7 @@ def device_alert(payload: DeviceLocation, db: Session = Depends(database.get_db)
         raise HTTPException(status_code=404, detail="User not found")
 
     # GET EMERGENCY CONTACTS (LIST OF STRINGS)
-    contacts: List[str] = user.emergency_contacts or []
+    contacts: List[str] = user.emergency_contacts or [] # type: ignore
     if not contacts:
         return {"status": "no_contacts", "message": "No emergency contacts found"}
 
