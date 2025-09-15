@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-dotenv
+requests
+fastkml shapely
+lxml
+geoalchemy2
+SQLAlchemy
+alembic
+psycopg2-binary
+twilio
+python-dotenv
