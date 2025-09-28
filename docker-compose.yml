@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgis/postgis:latest
+    container_name: sih2k25-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: jumon000
+      POSTGRES_DB: sih2k25
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sih2k25-web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:jumon000@db:5432/sih2k25
+      GEOAPIFY_API_KEY: 3dbdc9eaa3174adcbb032249d3add307
+      TWILIO_SID: AC062fc6b87e60d7bb19c3fee44bfdcbc9
+      TWILIO_AUTH_TOKEN: e398edbf0b6d18addfdc676033d6c944
+      TWILIO_PHONE: +12137144329
+      PORT: 8000
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:
