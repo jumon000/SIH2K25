@@ -6,7 +6,7 @@ from datetime import datetime
 from database import Base
 
 
-
+"""user table"""
 class User(Base):
     """SQLAlchemy User model"""
     __tablename__ = "users"
