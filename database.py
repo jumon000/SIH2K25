@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
+"""should be hidden"""
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
     "postgresql://postgres:jumon000@localhost:5432/sih2k25"
